@@ -9,5 +9,12 @@
 </head>
 <body>
     <h2 id="cokefish">Welcome to Coke town</h2>
+    <script>
+        const fs = require('fs')
+        const inputData = fs.readFileSync('/dev/stdin').toString().split(' ').map(value => +value)
+        const [a,b] = inputData
+
+console.log(a+b)
+    </script>
 </body>
 </html>

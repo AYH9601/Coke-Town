@@ -140,3 +140,31 @@ function solution(H, M) {
     }
     console.log(H, M);
 }
+
+//6번
+const fs = require('fs');
+const filePath = process.platform === 'linux' ? '/dev/stdin' : './input.txt';
+let input = fs.readFileSync(filePath).toString().split('\n');
+
+input = input[0];
+input = input.split(' ').map((item) => +item);
+
+solution(input[0], input[1], input[2]);
+
+function solution(H, M, T) {
+    if (T > 60) {
+        H += 1
+        T -= 60    
+    }
+
+    M += M+T;
+
+    if (M > 60) {
+        H += 1;
+        M -= 60;
+    }
+
+    if (H >= 24) {
+        H -= 24;
+    }
+}

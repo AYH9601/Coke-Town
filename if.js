@@ -86,3 +86,57 @@ rl.on("line", function (line) {
 });
 
 //5번
+const readline = require("readline");
+
+const rl = readline.createInterface({
+	input: process.stdin,
+    output: process.stdout
+});
+
+let input = [];
+
+rl.on("line", function (line) {
+	let input = line.split(" ");
+    ////////////////////////////////////////
+    let H = Number(input[0]);
+    let M = Number(input[1]);
+    
+    if (M - 45 < 0) {
+        M = 60 + (num2 - 45);
+        H -= 1;
+        
+        if (H === -1) {
+            H = 23;
+        }
+	} else {
+		M -= 45;
+    }
+    
+    console.log(H + " " + M);
+}).on("close", function () {
+	process.exit();
+});
+
+//5번 다른 방법, 좀 더 직관적인. 마찬가지로 입력부분은 생략하고 solution에 집중
+const fs = require('fs');
+const filePath = process.platform === 'linux' ? '/dev/stdin' : './input.txt';
+let input = fs.readFileSync(filePath).toString().split('\n');
+
+input = input[0];
+input = input.split(' ').map((item) => +item);
+
+solution(input[0], input[1]);
+
+function solution(H, M) {
+    M -= 45;
+
+    if (M < 0) {
+        M += 60;
+        H -= 1;
+    }
+
+    if (H < 0) { // 이부분 else if로 합치면 안됨.
+        H = 23;
+    }
+    console.log(H, M);
+}

@@ -101,3 +101,126 @@ function solution(N) {
     }
 };
 
+//7번
+const fs = require('fs');
+const filePath = process.platform === 'linux' ? '/dev/stdin' : './input.txt';
+let input = fs.readFileSync(filePath).toString().split('\n');
+
+const testCaseArray = [];
+for (let i = 1; i <= input[0]; ++i){
+    const tempValue = input[i].split(' ').map((item) => +item);
+    testCaseArray.push({A: tempValue[0], B:tempValue[1]});
+};
+
+solution(+input[0], testCaseArray);
+
+function solution(T, testCaseArray) {
+    for (let i = 0; i < T; ++i) {
+        const A = testCaseArray[i].A;
+        const B = testCaseArray[i].B;
+        console.log(`Case #${i+1}: ${A+B}`);
+    }
+};
+
+//8번
+const fs = require('fs');
+const filePath = process.platform === 'linux' ? '/dev/stdin' : './input.txt';
+let input = fs.readFileSync(filePath).toString().split('\n');
+
+const testCaseArray = [];
+for (let i = 1; i <= +input[0]; ++i){
+    const tempValue = input[i].split(' ').map((item) => +item);
+    testCaseArray.push({A: tempValue[0], B:tempValue[1]});
+};
+
+solution(+input[0], testCaseArray);
+
+function solution(T, testCaseArray) {
+    for (let i = 0; i < T; ++i) {
+        const A = testCaseArray[i].A;
+        const B = testCaseArray[i].B;
+        console.log(`Case #${i+1}: ${A} + ${B} = ${A+B}`);
+    }
+};
+
+//9번
+const fs = require('fs');
+const filePath = process.platform === 'linux' ? '/dev/stdin' : './input.txt';
+let input = fs.readFileSync(filePath).toString().split('\n');
+
+solution(+input[0]);
+
+function solution(N) {
+
+    for(let line = 1; line <= N; ++line) {
+        const starCount = line;
+        const spaceCount = N-line;
+        let printString = '';
+
+        for let( i = 0; i < starCount; ++i) {
+            printString += "*";
+        }
+        for let( i = 0; i < spaceCount; ++i) {
+            printString += " ";
+        }
+        console.log(printString)
+    }
+};
+
+//9번 다른 방식. 런타임 에러 안나는 방식
+let input = require('fs').readFileSync('/dev/stdin').toString();
+
+let star = "";
+
+for (let i = 0; i < input; i++) {
+    star += "*"
+    console.log(star); 
+}
+
+
+//10번. 9번의 반대
+const fs = require('fs');
+const filePath = process.platform === 'linux' ? '/dev/stdin' : './input.txt';
+let input = fs.readFileSync(filePath).toString().split('\n');
+
+solution(+input[0]);
+
+function solution(N) {
+
+    for(let line = 1; line <= N; ++line) {
+        const starCount = line;
+        const spaceCount = N-line;
+        let printString = '';
+
+        for let( i = 0; i < starCount; ++i) {
+            printString += " ";
+        }
+        for let( i = 0; i < spaceCount; ++i) {
+            printString += "*";
+        }
+        console.log(printString)
+    }
+};
+
+//10번 다른방식. 런타임에러 안나게
+let input = require('fs').readFileSync('/dev/stdin').toString();
+
+let num = Number(input);
+
+for (let i = 0; i < num; i++) {
+    let star = '';
+    for (let j = num - 1; j >= 0; j--) {
+    star += j <= i ? '*' : ' ';
+    }
+    console.log(star);
+}
+
+//아래껀 9번으로, 9번과 비교하며 한눈에 보기위해 작성
+let input = require('fs').readFileSync('/dev/stdin').toString();
+
+let star = "";
+
+for (let i = 0; i < input; i++) {
+    star += "*"
+    console.log(star); 
+}
